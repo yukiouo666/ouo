@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>日凪空快樂的小網站</title>
+  <link rel="icon" href="avatar.png" type="image/png">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/projectAndWork_card.css">
+  <meta property="og:title" content="日凪空的個人網站">
+  <meta property="og:description" content="感覺程式人都有自己的網站，自己應該也要有">
+  <meta property="og:image" content="https://yukiouo666.github.io/avatar.png">
+  <meta property="og:url" content="https://yukiouo666.github.io/">
+  <meta property="og:type" content="website">
+</head>
+<body>
+  <header>
+    <a href="index.html" class="brand">
+      <span class="logo-wrapper">
+        <img src="avatar.png" alt="網站 Logo" class="logo-img logo-normal">
+        <img src="avatarbomb.png" alt="網站 Logo Hover" class="logo-img logo-hover">
+      </span>
+      <span class="site-name">日凪空のブログ</span>
+    </a>
+
+    <div class="menu-btn" id="menuBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </header>
+
+  <nav id="sideNav">
+    <ul>
+      <li><a href="index.html">首頁</a></li>
+      <li><a href="aboutme.html">關於我</a></li>
+      <li><a href="project.html">專案文章</a></li>
+      <li><a href="works.html">作品集</a></li>
+      <li><a href="friend.html">友站</a></li>
+      <li><a href="renew.html">更新</a></li>
+    </ul>
+    <button id="themeBtn">🌑</button>
+  </nav>
+
+  <main>
+    <section class="center-content">
+      <div class="page-title-wrap">
+        <h2 class="page-title">龍舟競賽</h2>
+      </div>
+    </section>
+    <div class="article-card">
+      <p class="article-text-main">
+        有時候不是沒有想法，
+      </p>
+
+      <p class="article-text">
+        而是不知道該從哪裡開始說。
+      </p>
+
+      <!-- 圖片區塊 -->
+      <figure class="article-image">
+        <img src="boat.jpg" alt="">
+        <figcaption>那天晚上記下來的畫面。</figcaption>
+      </figure>
+
+      <p class="article-text">
+        有些念頭在腦中存在很久了，
+        卻一直沒有一個適合的出口。
+      </p>
+      <figure class="article-video">
+        <div class="video-wrapper">
+          <video
+            controls
+            preload="metadata"
+            playsinline
+          >
+            <source src="boat_run.mp4" type="video/mp4">
+          </video>
+        </div>
+        <figcaption>裝置測試影片</figcaption>
+      </figure>
+    </div>
+    <div class="page-footer">
+      <p class="footer-text">
+        喵喵喵
+      </p>
+    </div>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

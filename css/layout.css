@@ -1,0 +1,456 @@
+/* =========================
+   layout.css
+   網站結構與導覽（最終完成版）
+========================= */
+
+/* ---------- Header ---------- */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(15, 12, 41, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ---------- Brand ---------- */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  z-index: 1100;
+}
+
+.site-name {
+  font-size: 22px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* 深色模式 hover 補回 */
+body:not(.light-theme) .brand:hover .site-name {
+  color: #bb86fc;
+  text-shadow: 0 2px 12px rgba(187, 134, 252, 0.8);
+}
+
+/* ---------- Logo ---------- */
+.logo-wrapper {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+}
+
+.logo-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.logo-normal { opacity: 1; }
+.logo-hover  { opacity: 0; transform: scale(1.1); }
+
+.brand:hover .logo-normal { opacity: 0; }
+.brand:hover .logo-hover  { opacity: 1; transform: scale(1); }
+
+/* ---------- 漢堡選單按鈕 ---------- */
+.menu-btn {
+  width: 32px;
+  height: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  z-index: 1100;
+  transition:
+    transform 0.35s ease,
+    opacity 0.35s ease;
+}
+
+.menu-btn span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #e0e0e0;
+  border-radius: 2px;
+  transition:
+    transform 0.35s ease,
+    opacity 0.25s ease,
+    background-color 0.25s ease;
+}
+
+/* hover 微亮 */
+.menu-btn:hover span {
+  background-color: #bb86fc;
+}
+
+/* 點擊後 → 變 X */
+.menu-btn.active span:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+
+.menu-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-btn.active span:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+/* 點擊後：整顆往左飄 */
+.menu-btn.active {
+  transform: translateX(-48px);
+  opacity: 0;
+}
+
+/* ---------- Side Nav ---------- */
+nav {
+  position: fixed;
+  top: 0;
+  right: -80%;
+  width: 80%;
+  max-width: 300px;
+  height: 100%;
+  background: linear-gradient(180deg, #1a1625, #2d2640);
+  z-index: 1200;
+  padding-top: 60px;
+  transition: right 0.4s ease;
+  box-shadow: -4px 0 30px rgba(0, 0, 0, 0.7);
+}
+
+nav.active { right: 0; }
+
+nav ul {
+  list-style: none;
+}
+
+/* 每一列 */
+nav ul li {
+  position: relative;
+  overflow: hidden;
+  padding: 20px 30px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* 左側流光 */
+nav ul li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(187, 134, 252, 0.25),
+    transparent
+  );
+  transition: left 0.45s ease;
+}
+
+nav ul li:hover::before {
+  left: 100%;
+}
+
+/* 連結 */
+nav ul li a {
+  position: relative;
+  display: block;
+  padding: 12px 16px;
+  font-size: 20px;
+  color: #e0e0e0;
+  text-decoration: none;
+  border-radius: 8px;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+/* hover：滑動 + 亮底 */
+nav ul li a:hover {
+  transform: translateX(6px);
+  background: linear-gradient(
+    90deg,
+    rgba(187, 134, 252, 0.18),
+    rgba(138, 43, 226, 0.12)
+  );
+  color: #bb86fc;
+}
+
+/* 左側亮條 */
+nav ul li a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10%;
+  width: 4px;
+  height: 80%;
+  background: #bb86fc;
+  border-radius: 4px;
+  opacity: 0;
+  transform: scaleY(0.6);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+nav ul li a:hover::before {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+/* 目前頁 */
+nav ul li.active a {
+  color: #bb86fc;
+  font-weight: 700;
+  background: linear-gradient(
+    90deg,
+    rgba(187, 134, 252, 0.25),
+    rgba(138, 43, 226, 0.25)
+  );
+  box-shadow: inset 3px 0 0 #bb86fc;
+}
+
+/* ---------- Main ---------- */
+.center-content {
+  padding: 100px 20px 40px;
+  text-align: center;
+}
+
+/* 點開選單暗化 */
+body.menu-open main {
+  filter: brightness(0.5);
+}
+
+/* ---------- Section ---------- */
+section {
+  margin: 80px 0;
+  overflow: visible;
+}
+
+/* 只有 section 內「非標題」才淡入 */
+section:not(.title-section) {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s forwards;
+}
+
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+section h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #bb86fc;
+  font-weight: 700;
+  text-shadow: 0 2px 10px rgba(187, 134, 252, 0.4);
+}
+
+section p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #d0d0d0;
+}
+
+/* ---------- Back link ---------- */
+.back-link {
+  display: inline-block;
+  font-size: 14px;
+  color: #7aa2ff;
+  text-decoration: none;
+  opacity: 0.85;
+}
+
+.back-link:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.page-head {
+  margin-bottom: 48px;
+  text-align: left;
+}
+
+/* ---------- 主題切換按鈕 ---------- */
+#themeBtn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  font-size: 22px;
+  cursor: pointer;
+  background: rgba(187, 134, 252, 0.25);
+  border: 2px solid rgba(187, 134, 252, 0.35);
+  color: #bb86fc;
+  z-index: 1300;
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+#themeBtn::after {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 2px solid rgba(187, 134, 252, 0.35);
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+#themeBtn:hover {
+  transform: scale(1.12) rotate(20deg);
+  box-shadow: 0 0 25px rgba(187, 134, 252, 0.55);
+}
+
+#themeBtn:hover::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ---------- Page Title：逐字跳出 ---------- */
+.page-title {
+  display: inline-block;
+}
+
+.page-title span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(24px) scale(0.9);
+  animation: charPop 0.6s cubic-bezier(0.22, 1.28, 0.36, 1) forwards;
+}
+
+@keyframes charPop {
+  0% {
+    opacity: 0;
+    transform: translateY(24px) scale(0.9);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-6px) scale(1.08);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* =========================
+   Page Title：逐字跳出（最終版）
+========================= */
+
+.page-title-wrap {
+  overflow: visible;
+}
+
+.page-title {
+  display: inline-block;
+  animation: none;
+}
+
+.page-title span {
+  display: inline-block;
+
+  /* 最終狀態先寫死 */
+  opacity: 1;
+  transform: translateY(0) scale(1);
+
+  /* 動畫初始狀態交給 keyframes */
+  animation: charPop 0.6s cubic-bezier(0.22, 1.28, 0.36, 1) both;
+}
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-top: 30px; /* 實際 header 高度 */
+}
+
+/* ✅ 保底：沒有 span 的標題一定要顯示 */
+.page-title {
+  opacity: 1;
+  transform: none;
+}
+
+.page-footer {
+  margin-top: 100px;      /* 跟內容拉開 */
+  padding-bottom: 80px;   /* 底部還能再滑 */
+  text-align: center;
+}
+
+.footer-text {
+  font-size: 14px;
+  letter-spacing: 1px;
+  opacity: 0.5;
+}
+
+/* =========================
+   Site Visitor Counter
+========================= */
+
+.site-visitor {
+  position: fixed;
+  left: 18px;
+  bottom: 14px;
+
+  font-size: 12px;
+  letter-spacing: 1px;
+
+  color: rgba(255, 255, 255, 0.45);
+
+  pointer-events: none; /* 不干擾操作 */
+  user-select: none;
+
+  z-index: 10;
+}
+
+/* 淺色模式 */
+body.light-theme .site-visitor {
+  color: rgba(30, 50, 80, 0.45);
+}
+
+/* 數字稍微清楚一點 */
+.site-visitor span {
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+body.light-theme .site-visitor span {
+  color: rgba(30, 50, 80, 0.65);
+}
+
+/* =========================
+   Visitor Text Animation
+========================= */
+
+.site-visitor span.char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(6px);
+  animation: visitorCharIn 0.6s ease forwards;
+}
+
+@keyframes visitorCharIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

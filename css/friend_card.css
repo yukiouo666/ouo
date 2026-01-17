@@ -1,0 +1,274 @@
+/* =========================================================
+   friend_card.css
+   Friend Section – Final Clean & Working Version
+========================================================= */
+
+/* =========================
+   Section
+========================= */
+
+.friend-section {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* =========================
+   Intro Card
+========================= */
+
+.friend-intro,
+.friend-intro-card {
+  border-radius: 28px;
+  text-align: center;
+}
+
+.friend-intro {
+  padding: 36px 40px;
+  margin-bottom: 48px;
+}
+
+.friend-intro-card {
+  padding: 16px;
+  margin-bottom: 56px;
+}
+
+/* ---------- Dark Theme ---------- */
+
+body:not(.light-theme) .friend-intro,
+body:not(.light-theme) .friend-intro-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.10),
+    rgba(255, 255, 255, 0.04)
+  );
+  border: 1px solid rgba(187, 134, 252, 0.18);
+  box-shadow:
+    0 28px 60px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+/* ---------- Light Theme ---------- */
+
+body.light-theme .friend-intro,
+body.light-theme .friend-intro-card {
+  background: linear-gradient(
+    135deg,
+    rgba(210, 222, 235, 0.96),
+    rgba(195, 210, 228, 0.96)
+  );
+  box-shadow:
+    0 18px 40px rgba(60, 90, 130, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+/* =========================
+   Cards Grid
+========================= */
+
+.friend-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 28px;
+  row-gap: 70px;
+}
+
+/* =========================
+   Friend Card – Base
+========================= */
+
+.friend-card {
+  /* 每張卡可自訂 */
+  --accent-dark: 40, 60, 100;
+  --accent-light: 72, 98, 140;
+
+  /* 預設：深色模式 */
+  --accent: var(--accent-dark);
+
+  background: rgba(var(--accent), 0.14);
+  border-radius: 18px;
+  padding: 20px 22px;
+
+  text-decoration: none;
+  color: inherit;
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease,
+    box-shadow 0.35s ease;
+
+  margin-bottom: 12px;
+}
+
+/* ⭐ 關鍵：Light Theme 改用 accent-light */
+
+body.light-theme .friend-card {
+  --accent: var(--accent-light);
+}
+
+/* =========================
+   Hover
+========================= */
+
+body:not(.light-theme) .friend-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  background: rgba(var(--accent), 0.22);
+  box-shadow: 0 14px 34px rgba(var(--accent), 0.45);
+}
+
+body.light-theme .friend-card:hover {
+  transform: translateY(-6px) scale(1.025);
+  background: radial-gradient(
+    circle at top left,
+    rgba(var(--accent-light), 0.55),
+    rgba(var(--accent-light), 0.25) 45%
+  );
+  box-shadow:
+    0 22px 48px rgba(var(--accent-light), 0.45),
+    inset 0 2px 0 rgba(255, 255, 255, 0.85);
+}
+
+/* =========================
+   Card Inner Layout
+========================= */
+
+.friend-card-inner {
+  display: flex;
+  align-items: flex-start; /* ⭐ 對齊第一行文字 */
+  gap: 14px;
+}
+
+/* =========================
+   Avatar
+========================= */
+
+.friend-avatar {
+  width: 68px;
+  height: 68px;
+  margin-top: 4px; /* ⭐ 視覺對齊文字 */
+
+  border-radius: 50%;
+  object-fit: cover;
+
+  outline: 1px solid rgba(255, 255, 255, 0.6);
+  outline-offset: -1px;
+
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    outline-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+/* Avatar Hover */
+
+.friend-card:hover .friend-avatar {
+  transform: translateX(6px) rotate(8deg);
+  outline-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+}
+
+/* =========================
+   Text
+========================= */
+
+.friend-info {
+  text-align: left;
+}
+
+.friend-name {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.friend-desc {
+  font-size: 14px;
+  opacity: 0.85;
+  letter-spacing: 1px;
+}
+
+/* =========================
+   Selected Card
+========================= */
+
+.friend-card.is-active {
+  transform: translateY(-4px) scale(1.02);
+}
+
+/* Selected – Light Theme */
+
+body.light-theme .friend-card.is-active {
+  background: linear-gradient(
+    135deg,
+    rgba(var(--accent-light), 0.55),
+    rgba(255, 255, 255, 0.75)
+  );
+
+  box-shadow:
+    0 30px 70px rgba(var(--accent-light), 0.45),
+    inset 0 2px 0 rgba(255, 255, 255, 0.95);
+}
+
+body.light-theme .friend-card.is-active .friend-avatar {
+  outline-color: rgba(255, 255, 255, 1);
+}
+
+body.light-theme .friend-card.is-active .friend-name {
+  color: #111827;
+}
+
+body.light-theme .friend-card.is-active .friend-desc {
+  color: rgba(17, 24, 39, 0.7);
+}
+
+/* =========================
+   Title
+========================= */
+
+.friend-title {
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  margin-bottom: 18px;
+}
+
+/* Dark */
+
+body:not(.light-theme) .friend-title {
+  color: #e9d5ff;
+  text-shadow: 0 2px 14px rgba(187, 134, 252, 0.45);
+}
+
+/* Light */
+
+body.light-theme .friend-title {
+  color: #3f5f85;
+  text-shadow: 0 2px 10px rgba(90, 140, 200, 0.3);
+}
+
+/* =========================
+   Remove Link Underline
+========================= */
+
+.friend-card,
+.friend-card * {
+  text-decoration: none;
+}
+
+/* 外層稍暗 */
+body.light-theme .friend-intro,
+body.light-theme .friend-intro-card {
+  background: linear-gradient(
+    135deg,
+    rgba(180, 195, 215, 0.95),
+    rgba(165, 185, 210, 0.95)
+  );
+}
+
+/* 卡片稍亮 */
+body.light-theme .friend-card {
+  background: rgba(var(--accent-light), 0.28);
+}

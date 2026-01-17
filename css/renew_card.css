@@ -1,0 +1,73 @@
+/* =========================
+   renew_card.css
+   更新頁專用卡片
+========================= */
+
+/* 卡片列表（一塊一塊） */
+.renew-card-list {
+  max-width: 860px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+}
+
+/* 單一更新卡片 */
+/* =========================
+   Renew Card（深色模式強化版）
+========================= */
+
+.renew-card {
+  background: rgba(255, 255, 255, 0.16); /* ⬅ 關鍵：再亮一階 */
+  border-radius: 22px;
+  padding: 32px 36px;
+  backdrop-filter: blur(10px);
+
+  /* ⬅ 關鍵：冷色陰影，拉開背景層次 */
+  box-shadow:
+    0 14px 36px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.04);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+
+  text-align: center;
+}
+
+/* hover：明顯浮起來 */
+.renew-card:hover {
+  background: rgba(255, 255, 255, 0.22); /* ⬅ hover 再亮一點 */
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 22px 48px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(187, 134, 252, 0.18);
+}
+
+/* 標題 */
+.renew-card .card-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #f1f1f1;
+}
+
+/* 內容 */
+.renew-card .card-desc {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #d0d0d0;
+  margin-bottom: 24px;
+}
+
+/* 時間（底下靠左） */
+.renew-card .card-meta {
+  font-size: 14px;
+  color: #a0a0a0;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}

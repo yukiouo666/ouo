@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>日凪空快樂的小網站</title>
+  <link rel="icon" href="avatar.png" type="image/png">
+  <link rel="stylesheet" href="css/friend_card.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/theme.css">
+</head>
+<body>
+  <header>
+    <a href="index.html" class="brand">
+      <span class="logo-wrapper">
+        <img src="avatar.png" alt="網站 Logo" class="logo-img logo-normal">
+        <img src="avatarbomb.png" alt="網站 Logo Hover" class="logo-img logo-hover">
+      </span>
+      <span class="site-name">日凪空のブログ</span>
+    </a>
+
+    <div class="menu-btn" id="menuBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </header>
+
+  <nav id="sideNav">
+    <ul>
+      <li><a href="index.html">首頁</a></li>
+      <li><a href="aboutme.html">關於我</a></li>
+      <li><a href="project.html">專案文章</a></li>
+      <li><a href="works.html">作品集</a></li>
+      <li><a href="friend.html">友站</a></li>
+      <li><a href="renew.html">更新</a></li>
+    </ul>
+    <button id="themeBtn">🌑</button>
+  </nav>
+
+  <main>
+    <section class="center-content">
+      <div class="page-title-wrap">
+        <h2 class="page-title">良い友達</h2>
+      </div>
+    </section>
+
+    <!-- ===== 朋友介紹區 ===== -->
+    <section class="friend-section">
+
+      <div class="friend-intro-card">
+        <h3 class="friend-title">損友</h3>
+      </div>
+
+      <!-- 朋友卡片 -->
+      <div class="friend-cards">
+
+        <a class="friend-card is-active"
+          href="https://www.instagram.com/shark__0919?igsh=dTEyajA0ajlkam0y"
+          target="_blank"
+          rel="noopener"
+          style="--accent-dark: 165, 140, 235; --accent-light: 130, 170, 220;">
+
+          <div class="friend-card-inner">
+
+            <img src="shark_avatar.png"
+                alt="鯊魚"
+                class="friend-avatar">
+
+            <div class="friend-info">
+              <h3 class="friend-name">鯊魚</h3>
+              <p class="friend-desc">一隻鯊魚</p>
+            </div>
+
+          </div>
+        </a>
+                <a class="friend-card is-active"
+          href="https://www.instagram.com/ethan._.chang_?igsh=MWNremx2bnFqbnlvcg%3D%3D&utm_source=qr"
+          target="_blank"
+          rel="noopener"
+          style="--accent-dark: 165, 140, 235; --accent-light: 165, 140, 235;">
+
+          <div class="friend-card-inner">
+
+            <img src="20124.png"
+                alt="Ethan Chang"
+                class="friend-avatar">
+
+            <div class="friend-info">
+              <h3 class="friend-name">Ethan Chang</h3>
+              <p class="friend-desc">未來想考上台大的人</p>
+            </div>
+
+          </div>
+        </a>
+      </div>
+    </section>
+    <div class="page-footer">
+      <p class="footer-text">
+        喵喵喵
+      </p>
+    </div>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+/* =========================
+   base.css
+   全站基礎樣式
+========================= */
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  font-family: "Noto Sans TC", sans-serif;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  color: #e0e0e0;
+  min-height: 100vh;
+  transition: background 0.4s ease, color 0.8s ease;
+}
+
+/* =========================
+   About – 基本資訊（名字 / 生日）
+========================= */
+
+.about-basic {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.info-item {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+
+.info-label {
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: rgba(255, 255, 255, 0.6);
+  min-width: 56px;   /* ⭐ 關鍵：讓名字 / 生日對齊 */
+  text-align: left;
+}
+
+.info-value {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* =========================
+   About – 自我介紹內容區
+========================= */
+
+.about-desc {
+  margin-top: 32px;
+  padding: 24px 28px;
+  border-radius: 22px;
+
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.about-desc-title {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin-bottom: 14px;
+
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.about-desc-text {
+  font-size: 15px;
+  line-height: 1.9;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.about-container {
+  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+}
+

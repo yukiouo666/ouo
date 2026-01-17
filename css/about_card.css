@@ -1,0 +1,356 @@
+/* =========================
+   about_card.css
+========================= */
+
+/* =========================
+   Card 外框（大方塊）
+========================= */
+
+.about-card {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-container {
+  padding: 40px;
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* =========================
+   上半部：頭像 + 基本資訊
+========================= */
+
+.about-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+  margin-bottom: 36px;
+}
+
+/* =========================
+   Avatar（Hover + Tap 雙模式）
+========================= */
+
+.about-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+
+  background: rgba(255, 255, 255, 0.10);
+  outline: 1px solid rgba(255, 255, 255, 0.18);
+  outline-offset: -1px;
+}
+
+/* 疊圖 */
+.avatar-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  transition:
+    opacity 0.4s ease,
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* 初始 */
+.avatar-normal {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.avatar-hover {
+  opacity: 0;
+  transform: rotate(-180deg) scale(0.9);
+}
+
+/* 桌機：hover */
+.about-avatar:hover .avatar-normal {
+  opacity: 0;
+  transform: rotate(180deg) scale(0.9);
+}
+
+.about-avatar:hover .avatar-hover {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+/* 📱 行動裝置：點擊切換（is-active） */
+.about-avatar.is-active .avatar-normal {
+  opacity: 0;
+  transform: rotate(180deg) scale(0.9);
+}
+
+.about-avatar.is-active .avatar-hover {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+/* Click：放大＋亮一下 */
+
+.about-avatar.is-clicked {
+  transform: scale(1.08);
+}
+
+.about-avatar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+}
+
+.about-avatar.is-clicked::after {
+  opacity: 1;
+}
+
+/* =========================
+   基本資訊（名字 / 生日）
+========================= */
+
+.about-basic {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.info-label,
+.info-value {
+  line-height: 1.4;
+}
+
+.info-label {
+  min-width: 56px;
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.info-value {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* 個別微調 */
+
+.info-item:first-child .info-value,
+.info-item:last-child .info-value {
+  transform: translateY(1px);
+}
+
+/* =========================
+   下半部：About 內文（小方塊）
+========================= */
+
+.about-desc {
+  padding: 28px 32px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.12);
+  text-align: left;
+}
+
+/* 標題 */
+
+.about-desc-title {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin-bottom: 24px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* 共用段落 */
+
+.about-text {
+  margin: 0 0 10px 0;
+  line-height: 1.9;
+}
+
+/* ① 主敘述 */
+
+.about-text-main {
+  font-size: 24px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* ② 第二層（大字、非粗體） */
+
+.about-text-large {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 2.1;
+  margin: 10px 0 22px 0;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* ③ 補充 */
+
+.about-text-sub {
+  font-size: 18px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* 在大一點的字 */
+.about-text-sub-sub {
+  font-size: 21px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ④ 背景文字 */
+
+.about-text-small {
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* =========================
+   Light Theme 修正
+========================= */
+
+body.light-theme .about-container {
+  background: rgba(190, 205, 225, 0.95);
+}
+
+body.light-theme .about-desc {
+  background: rgba(255, 255, 255, 0.75);
+}
+
+body.light-theme .info-label {
+  color: rgba(40, 60, 90, 0.6);
+}
+
+body.light-theme .info-value {
+  color: #1f2f46;
+}
+
+body.light-theme .about-desc-title {
+  color: #1f2f46;
+}
+
+body.light-theme .about-text-main {
+  color: #3a4c67;
+}
+
+body.light-theme .about-text-large {
+  color: rgba(38, 57, 85, 0.65);
+}
+
+body.light-theme .about-text-sub {
+  color: rgba(40, 60, 90, 0.75);
+}
+
+body.light-theme .about-text-sub-sub {
+  color: #3a4c67;
+}
+
+body.light-theme .about-text-small {
+  color: rgba(40, 60, 90, 0.55);
+}
+
+/* =========================
+   RWD（手機）
+========================= */
+
+@media (max-width: 640px) {
+  .about-top {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .about-avatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  .info-value {
+    font-size: 17px;
+  }
+
+  .about-desc {
+    padding: 20px 22px;
+  }
+}
+
+/* =========================
+   About Links
+========================= */
+
+.about-links {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.about-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+
+  text-decoration: none;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+
+  color: rgba(255, 255, 255, 0.75);
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.about-link img {
+  width: 25px;
+  height: 25px;
+  opacity: 0.7;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.about-link:hover {
+  color: #bb86fc;
+  transform: translateX(6px);
+}
+
+.about-link:hover img {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* 淺色模式 */
+body.light-theme .about-link {
+  color: rgba(30, 50, 80, 0.7);
+}
+
+body.light-theme .about-link:hover {
+  color: #86acff;
+}
+
+.score {
+  margin-left: 1.2em;
+  letter-spacing: 0.15em;
+  opacity: 0.8;
+}
+
+.score-sub {
+  margin-left: 0.3em;
+  letter-spacing: 0.15em;
+  opacity: 0.8;
+}

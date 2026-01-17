@@ -1,0 +1,376 @@
+/* =========================================================
+   Project Card / Block（專案卡片）
+========================================================= */
+
+/* 小卡片（目前未與 project-block 混用） */
+.project-card {
+  background: rgba(210, 235, 255, 0.6);
+  border-radius: 18px;
+  padding: 26px 28px;
+
+  text-decoration: none;
+  color: inherit;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 14px 36px rgba(187, 134, 252, 0.35);
+}
+
+
+/* =========================================================
+   Page Head（頁面標題區）
+========================================================= */
+
+.page-head {
+  max-width: 900px;
+  margin: 0 auto 32px;
+  padding-top: 24px;
+  text-align: left;
+}
+
+.page-title {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   Back Arrow（返回鍵）
+========================================================= */
+
+.page-head--with-back {
+  position: relative;
+}
+
+.back-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  margin-bottom: 12px;
+
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+
+  color: rgba(180, 190, 255, 0.55);
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.back-arrow:hover {
+  color: rgba(220, 230, 255, 1);
+  transform: translateX(-6px);
+}
+
+
+/* =========================================================
+   Project Block List（長塊列表）
+========================================================= */
+
+.project-block-list {
+  max-width: 900px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+
+/* =========================================================
+   Project Block（單一長塊）
+========================================================= */
+
+.project-block {
+  position: relative;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 32px;
+
+  padding: 28px 32px;
+  border-radius: 22px;
+
+  text-decoration: none;
+  color: unset;
+
+  background: rgba(255, 255, 255, 0.10);
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.project-block:hover {
+  background: rgba(255, 255, 255, 0.14);
+  transform: translateY(-4px);
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================================
+   Project Block 文字內容
+========================================================= */
+
+.block-main {
+  max-width: 640px;
+}
+
+.block-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.block-desc {
+  font-size: 16px;
+  line-height: 1.9;
+  opacity: 0.75;
+}
+
+.block-meta {
+  font-size: 14px;
+  opacity: 0.6;
+  white-space: nowrap;
+  margin-top: 4px;
+}
+
+.block-updated {
+  position: absolute;
+  right: 24px;
+  bottom: 18px;
+
+  font-size: 12px;
+  letter-spacing: 1px;
+  opacity: 0.45;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   Article Card（純內文卡片）
+========================================================= */
+
+.article-card {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 48px;
+  border-radius: 32px;
+
+  background: rgba(255, 255, 255, 0.10);
+
+  box-shadow:
+    0 22px 56px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+  animation: fadeUp 0.8s ease both;
+}
+
+
+/* =========================================================
+   Article Text Levels（文字層級）
+========================================================= */
+
+.article-text {
+  margin: 0 0 16px 0;
+  line-height: 1.9;
+}
+
+.article-text-main {
+  font-size: 24px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.article-text-large {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 2.1;
+  margin: 10px 0 22px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.article-text-sub {
+  font-size: 18px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.article-text-small {
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+
+/* =========================================================
+   Article Image / Video（共用結構）
+========================================================= */
+
+.article-image,
+.article-video {
+  margin: 36px 0;
+  text-align: center;
+
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.6s ease forwards;
+}
+
+.article-image img {
+  width: 100%;
+  max-width: 520px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.video-wrapper {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 20px;
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.video-wrapper iframe,
+.article-video video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.article-image figcaption,
+.article-video figcaption {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+
+/* =========================================================
+   Animation
+========================================================= */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   Light Theme（淺色模式）
+========================================================= */
+
+/* 卡片背景 */
+body.light-theme .article-card,
+body.light-theme .project-block {
+  background: rgba(231, 242, 255, 0.78);
+  box-shadow: 0 10px 24px rgba(60, 80, 120, 0.15);
+}
+
+/* Project Block 文字 */
+body.light-theme .block-title {
+  color: #243247;
+}
+
+body.light-theme .block-desc {
+  color: #3b4a63;
+  opacity: 1;
+}
+
+body.light-theme .block-meta {
+  color: #5b6b85;
+}
+
+body.light-theme .block-updated {
+  color: #6b7a92;
+}
+
+/* Article 文字 */
+body.light-theme .article-text-main {
+  color: #2b3442;
+}
+
+body.light-theme .article-text-large {
+  color: rgba(43, 52, 66, 0.75);
+}
+
+body.light-theme .article-text-sub {
+  color: rgba(43, 52, 66, 0.85);
+}
+
+body.light-theme .article-text-small {
+  color: rgba(43, 52, 66, 0.6);
+}
+
+/* 圖 / 影說明 */
+body.light-theme .article-image figcaption,
+body.light-theme .article-video figcaption {
+  color: rgba(43, 52, 66, 0.65);
+}
+
+
+/* =========================================================
+   Dark Theme only（避免被覆蓋）
+========================================================= */
+
+body:not(.light-theme) .block-desc {
+  opacity: 0.75;
+}
+
+
+/* =========================================================
+   Mobile
+========================================================= */
+
+@media (max-width: 640px) {
+  .project-block {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .block-meta {
+    font-size: 13px;
+  }
+
+  .back-arrow {
+    font-size: 14px;
+  }
+
+  .article-card {
+    padding: 32px 24px;
+  }
+}
